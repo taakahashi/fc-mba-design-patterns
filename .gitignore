@@ -2,4 +2,6 @@
 *.log
 .phpunit.result.cache
 
+database.sqlite
+
 /vendor/
