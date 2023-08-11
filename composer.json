@@ -16,6 +16,6 @@
     "mockery/mockery": "^1.5"
   },
   "require": {
-    "ext-sqlite3": "*"
+    "ext-pdo": "*"
   }
 }

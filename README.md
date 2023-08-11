@@ -1,9 +1,10 @@
 # MBA Fullcycle - Design Patterns
-Projeto prático para exemplificar alguns patterns em uma aplicação para emissão de notas fiscais.
+Projeto prático para exemplificar alguns patterns em uma aplicação para emissão de notas fiscais. Neste projeto, os patterns serão inseridos aos poucos para exemplificar onde cada um pode ajudar/melhorar.
 
 
 ## Patterns 
-1. DTO (Data Transfer Object)
+1. **DTO (Data Transfer Object):** objeto que têm somente propriedades, sendo utilizado para transporte entre camadas da aplicação. Neste exemplo estamos utilizando a nomenclatura Input/Output;
+2. 
 
 ## Informações Adicionais
 Será utilizado SQLite3 no BD para agilizar, visto que são somente exemplos e estudos.
