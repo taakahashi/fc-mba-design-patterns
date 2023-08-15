@@ -2,10 +2,15 @@
 
 namespace App;
 
-use PDO;
 
 class GenerateInvoices
 {
+
+    public function __construct(
+      readonly ContractRepository $contractRepository
+    )
+    {
+    }
 
     /**
      * @return Output[]
@@ -15,8 +20,7 @@ class GenerateInvoices
         /** @var Output[] $outputArray */
         $outputArray = [];
 
-        $contractRepository = new ContractDatabaseRepository();
-        $contracts = $contractRepository->list();
+        $contracts = $this->contractRepository->list();
 
         foreach ($contracts as $contract) {
             if ($input->type === 'cash') {

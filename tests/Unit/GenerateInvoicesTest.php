@@ -1,5 +1,6 @@
 <?php
 
+use App\ContractDatabaseRepository;
 use App\GenerateInvoices;
 use App\Input;
 use PHPUnit\Framework\TestCase;
@@ -9,7 +10,8 @@ class GenerateInvoicesTest extends TestCase
 
     public function testShouldGenerateInvoicesPerCashBasis()
     {
-        $generateInvoices = new GenerateInvoices();
+        $contractRepository = new ContractDatabaseRepository();
+        $generateInvoices = new GenerateInvoices($contractRepository);
 
         $input = new Input(1,  2023, 'cash');
         $output = $generateInvoices->execute($input);
@@ -20,7 +22,8 @@ class GenerateInvoicesTest extends TestCase
 
     public function testShouldGenerateInvoicesPerAccrualBasis()
     {
-        $generateInvoices = new GenerateInvoices();
+        $contractRepository = new ContractDatabaseRepository();
+        $generateInvoices = new GenerateInvoices($contractRepository);
 
         $input = new Input(1,  2023, 'accrual');
         $output = $generateInvoices->execute($input);
@@ -31,7 +34,8 @@ class GenerateInvoicesTest extends TestCase
 
     public function testShouldGenerateInvoicesPerAccrualBasis1()
     {
-        $generateInvoices = new GenerateInvoices();
+        $contractRepository = new ContractDatabaseRepository();
+        $generateInvoices = new GenerateInvoices($contractRepository);
 
         $input = new Input(2,  2023, 'accrual');
         $output = $generateInvoices->execute($input);
