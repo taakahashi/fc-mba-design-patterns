@@ -5,6 +5,7 @@ Projeto prático para exemplificar alguns patterns em uma aplicação para emiss
 ## Patterns 
 1. **DTO (Data Transfer Object):** objeto que têm somente propriedades, sendo utilizado para transporte entre camadas da aplicação. Neste exemplo estamos utilizando a nomenclatura Input/Output;
 2. **Repository**: é um padrão que tem como objetivo realizar a persistência de Aggregates (clusters de objetos de domínio, como entities e value objects), separando essa responsabilidade da aplicação;
+3. **Adapter**: converte a interface de uma classe em outra esperada pelo cliente, permitindo que classes incompatíveis trabalhem juntas;
 
 ## SOLID
 1. **SRP - Single Responsability Principle**: devemos separar coisas que mudam por motivos diferentes;

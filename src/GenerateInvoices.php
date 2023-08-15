@@ -8,8 +8,7 @@ class GenerateInvoices
 
     public function __construct(
       readonly ContractRepository $contractRepository
-    )
-    {
+    ) {
     }
 
     /**
@@ -23,29 +22,10 @@ class GenerateInvoices
         $contracts = $this->contractRepository->list();
 
         foreach ($contracts as $contract) {
-            if ($input->type === 'cash') {
-                foreach ($contract["payments"] as $payment) {
-                    $date = strtotime($payment['date']);
+            $invoices = $contract->generateInvoices($input->month, $input->year, $input->type);
 
-                    if (date('m', $date) != $input->month || date('Y', $date) != $input->year) continue;
-
-                    $outputArray[] = new Output(date('Y-m-d', $date), $payment['amount']);
-                }
-            }
-
-            if ($input->type === 'accrual') {
-                $period = 0;
-
-                while ($period < $contract['periods']) {
-                    $date = strtotime("+$period month", strtotime($contract['date']));
-                    $period++;
-
-                    if (date('m', $date) != $input->month || date('Y', $date) != $input->year) continue;
-
-                    $amount = $contract['amount'] / $contract['periods'];
-
-                    $outputArray[] = new Output(date('Y-m-d', $date), $amount);
-                }
+            foreach ($invoices as $invoice) {
+                $outputArray[] = new Output($invoice->date, $invoice->amount);
             }
         }
 
@@ -58,14 +38,14 @@ class Input {
         public int $month,
         public int $year,
         public string $type
-    )
-    { }
+    ) {
+    }
 }
 
 class Output {
     public function __construct(
         public string $date,
         public float $amount
-    )
-    { }
+    ) {
+    }
 }
