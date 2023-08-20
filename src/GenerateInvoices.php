@@ -2,7 +2,6 @@
 
 namespace App;
 
-
 class GenerateInvoices
 {
 
@@ -22,14 +21,20 @@ class GenerateInvoices
         $contracts = $this->contractRepository->list();
 
         foreach ($contracts as $contract) {
-            $invoices = $contract->generateInvoices($input->month, $input->year, $input->type);
+            $invoices = $contract->generateInvoices($input->month, $input->year, $input->type );
 
             foreach ($invoices as $invoice) {
                 $outputArray[] = new Output($invoice->date, $invoice->amount);
             }
         }
 
-        return $outputArray;
+        if ($input->format === "json") {
+            return $outputArray;
+        }
+
+        if ($input->format === "csv") {
+
+        }
     }
 }
 
@@ -37,7 +42,8 @@ class Input {
     public function __construct(
         public int $month,
         public int $year,
-        public string $type
+        public string $type,
+        public string $format = "json"
     ) {
     }
 }

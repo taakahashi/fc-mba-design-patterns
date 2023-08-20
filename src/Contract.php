@@ -27,36 +27,20 @@ class Contract
         return $this->payments;
     }
 
+    public function getBalance(): float
+    {
+        $balance = $this->amount;
+        foreach ($this->payments as $payment) {
+            $balance -= $payment->amount;
+        }
+
+        return $balance;
+    }
+
     public function generateInvoices(int $month, int $year, string $type): array
     {
-        /** @var Invoice[] $invoices */
-        $invoices = [];
+        $invoiceGenerationStrategy = InvoiceGenerationFactory::create($type);
 
-        if ($type === 'cash') {
-            foreach ($this->getPayments() as $payment) {
-                $date = strtotime($payment->date);
-
-                if (date('m', $date) != $month || date('Y', $date) != $year) continue;
-
-                $invoices[] = new Invoice(date('Y-m-d', $date), $payment->amount);
-            }
-        }
-
-        if ($type === 'accrual') {
-            $period = 0;
-
-            while ($period < $this->periods) {
-                $date = strtotime("+$period month", strtotime($this->date));
-                $period++;
-
-                if (date('m', $date) != $month || date('Y', $date) != $year) continue;
-
-                $amount = $this->amount / $this->periods;
-
-                $invoices[] = new Invoice(date('Y-m-d', $date), $amount);
-            }
-        }
-
-        return $invoices;
+       return $invoiceGenerationStrategy->generate($this, $month, $year);
     }
 }
