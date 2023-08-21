@@ -8,6 +8,7 @@ Projeto prático para exemplificar alguns patterns em uma aplicação para emiss
 3. **Adapter**: converte a interface de uma classe em outra esperada pelo cliente, permitindo que classes incompatíveis trabalhem juntas;
 4. **Strategy**: permite criar comportamentos intercambiáveis;
 5. **Dynamic Factory**: criar uma instância com base em uma string;
+6. **Presenter**: formatar e adequar um determinado conjunto de dados às necessidados do cliente;
 
 ## SOLID
 1. **SRP - Single Responsability Principle**: devemos separar coisas que mudam por motivos diferentes;

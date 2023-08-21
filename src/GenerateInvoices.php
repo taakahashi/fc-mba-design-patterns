@@ -6,14 +6,13 @@ class GenerateInvoices
 {
 
     public function __construct(
-      readonly ContractRepository $contractRepository
+        readonly ContractRepository $contractRepository,
+        readonly Presenter $presenter = new JsonPresenter()
     ) {
     }
 
-    /**
-     * @return Output[]
-     */
-    public function execute(Input $input): array
+
+    public function execute(Input $input)
     {
         /** @var Output[] $outputArray */
         $outputArray = [];
@@ -21,20 +20,14 @@ class GenerateInvoices
         $contracts = $this->contractRepository->list();
 
         foreach ($contracts as $contract) {
-            $invoices = $contract->generateInvoices($input->month, $input->year, $input->type );
+            $invoices = $contract->generateInvoices($input->month, $input->year, $input->type);
 
             foreach ($invoices as $invoice) {
                 $outputArray[] = new Output($invoice->date, $invoice->amount);
             }
         }
 
-        if ($input->format === "json") {
-            return $outputArray;
-        }
-
-        if ($input->format === "csv") {
-
-        }
+        return $this->presenter->present($outputArray);
     }
 }
 
