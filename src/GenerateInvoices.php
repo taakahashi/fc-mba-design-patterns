@@ -2,7 +2,7 @@
 
 namespace App;
 
-class GenerateInvoices
+class GenerateInvoices implements UseCase
 {
 
     public function __construct(
