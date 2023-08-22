@@ -1,15 +1,11 @@
 <?php
 
-namespace tests;
-
-use App\ContractDatabaseRepository;
-use App\CsvPresenter;
-use App\GenerateInvoices;
-use App\Input;
-use App\JsonPresenter;
-use App\SQLiteAdapter;
 use PHPUnit\Framework\TestCase;
-use PHPUnit\Util\Json;
+use Src\Application\UseCase\GenerateInvoices;
+use Src\Application\UseCase\Input;
+use Src\Infra\Database\SQLiteAdapter;
+use Src\Infra\Presenter\CsvPresenter;
+use Src\Infra\Repository\ContractDatabaseRepository;
 
 class GenerateInvoicesTest extends TestCase
 {

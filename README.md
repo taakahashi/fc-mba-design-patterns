@@ -10,6 +10,8 @@ Projeto prático para exemplificar alguns patterns em uma aplicação para emiss
 5. **Dynamic Factory**: criar uma instância com base em uma string;
 6. **Presenter**: formatar e adequar um determinado conjunto de dados às necessidados do cliente;
 7. **Decorator**: também chamado de _Wrapper_, permite acrescentar funcionalidades a um objeto existente;
+8. **Controller**: conecta o driver com a aplicação, repassando os dados de entrada e retornando a saída de acordo com o drive;
+9. **Composite Root**: 
 
 ## SOLID
 1. **SRP - Single Responsability Principle**: devemos separar coisas que mudam por motivos diferentes;

@@ -1,6 +1,8 @@
 <?php
 
-namespace App;
+namespace Src\Application\Presenter;
+
+use Src\Application\UseCase\Output;
 
 interface Presenter
 {

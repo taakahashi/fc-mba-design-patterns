@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace Src\Domain;
 
 interface InvoiceGenerationStrategy
 {

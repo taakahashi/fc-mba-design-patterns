@@ -1,10 +1,8 @@
 <?php
 
-namespace tests;
-
-use App\Contract;
-use App\Payment;
 use PHPUnit\Framework\TestCase;
+use Src\Domain\Contract;
+use Src\Domain\Payment;
 
 class ContractTest extends TestCase
 {

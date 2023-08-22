@@ -1,6 +1,8 @@
 <?php
 
-namespace App;
+namespace Src\Infra\Presenter;
+
+use Src\Application\Presenter\Presenter;
 
 class JsonPresenter implements Presenter
 {

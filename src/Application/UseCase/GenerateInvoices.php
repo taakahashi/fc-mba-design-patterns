@@ -1,6 +1,10 @@
 <?php
 
-namespace App;
+namespace Src\Application\UseCase;
+
+use Src\Application\Presenter\Presenter;
+use Src\Application\Repository\ContractRepository;
+use Src\Infra\Presenter\JsonPresenter;
 
 class GenerateInvoices implements UseCase
 {

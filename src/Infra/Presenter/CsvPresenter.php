@@ -1,6 +1,9 @@
 <?php
 
-namespace App;
+namespace Src\Infra\Presenter;
+
+use Src\Application\Presenter\Presenter;
+use Src\Application\UseCase\Output;
 
 class CsvPresenter implements Presenter
 {

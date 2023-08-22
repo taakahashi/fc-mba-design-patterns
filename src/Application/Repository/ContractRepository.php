@@ -1,6 +1,8 @@
 <?php
 
-namespace App;
+namespace Src\Application\Repository;
+
+use Src\Domain\Contract;
 
 interface ContractRepository
 {

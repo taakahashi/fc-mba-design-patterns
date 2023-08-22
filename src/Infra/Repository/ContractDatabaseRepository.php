@@ -1,8 +1,12 @@
 <?php
 
-namespace App;
+namespace Src\Infra\Repository;
 
 use PDO;
+use Src\Application\Repository\ContractRepository;
+use Src\Domain\Contract;
+use Src\Domain\Payment;
+use Src\Infra\Database\DatabaseConnection;
 
 class ContractDatabaseRepository implements ContractRepository
 {
