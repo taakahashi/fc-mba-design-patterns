@@ -11,7 +11,8 @@ Projeto prático para exemplificar alguns patterns em uma aplicação para emiss
 6. **Presenter**: formatar e adequar um determinado conjunto de dados às necessidados do cliente;
 7. **Decorator**: também chamado de _Wrapper_, permite acrescentar funcionalidades a um objeto existente;
 8. **Controller**: conecta o driver com a aplicação, repassando os dados de entrada e retornando a saída de acordo com o drive;
-9. **Composite Root**: 
+9. **Composite Root**: entrypoint da aplicação, onde são criadas as instâncias utilizadas pelos componentes, montando o grafo de dependências da aplicação;
+10. **Mediator**: cria um mecanismo de notificação para reduzir o acoplamento entre os objetos;
 
 ## SOLID
 1. **SRP - Single Responsability Principle**: devemos separar coisas que mudam por motivos diferentes;

@@ -4,6 +4,7 @@ namespace Src\Application\UseCase;
 
 use Src\Application\Presenter\Presenter;
 use Src\Application\Repository\ContractRepository;
+use Src\Infra\Mediator\Mediator;
 use Src\Infra\Presenter\JsonPresenter;
 
 class GenerateInvoices implements UseCase
@@ -11,7 +12,8 @@ class GenerateInvoices implements UseCase
 
     public function __construct(
         readonly ContractRepository $contractRepository,
-        readonly Presenter $presenter = new JsonPresenter()
+        readonly Presenter $presenter = new JsonPresenter(),
+        readonly Mediator $mediator = new Mediator()
     ) {
     }
 
@@ -30,6 +32,8 @@ class GenerateInvoices implements UseCase
                 $outputArray[] = new Output($invoice->date, $invoice->amount);
             }
         }
+
+        $this->mediator->publish("InvoicesGenerated", $outputArray);
 
         return $this->presenter->present($outputArray);
     }
